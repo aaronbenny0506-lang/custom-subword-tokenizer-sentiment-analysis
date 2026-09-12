@@ -1,0 +1,22 @@
+=== Custom BPE + Custom Embeddings ===
+              precision    recall  f1-score   support
+
+    negative       0.59      0.49      0.53       400
+    positive       0.56      0.66      0.61       400
+
+    accuracy                           0.57       800
+   macro avg       0.57      0.57      0.57       800
+weighted avg       0.57      0.57      0.57       800
+
+
+=== Pre-trained Tokenizer + GloVe-50d ===
+              precision    recall  f1-score   support
+
+    negative       0.72      0.67      0.70       400
+    positive       0.69      0.74      0.72       400
+
+    accuracy                           0.71       800
+   macro avg       0.71      0.71      0.71       800
+weighted avg       0.71      0.71      0.71       800
+
+
