@@ -1,12 +1,12 @@
-# Task 13 — Sentiment Analysis with a Custom Subword Tokenizer & Embeddings
+# Sentiment Analysis with a Custom Subword Tokenizer & Embeddings
 
 A complete NLP pipeline built **from scratch**: a custom Byte-Pair Encoding
 (BPE) subword tokenizer, custom word embeddings trained with skip-gram +
-negative sampling, and a downstream sentiment classifier — compared against
+negative sampling, and a downstream sentiment classifier, compared against
 a pre-trained tokenizer + pre-trained GloVe embeddings.
 
-Dataset: `Sentiment_Analysis.csv` — 80,000 balanced positive/negative texts
-(tweets/reviews mentioning products, movies, and general sentiment).
+Dataset: `Sentiment_Analysis.csv` : 80,000 balanced positive/negative texts
+(tweets/reviews mentioning products, movies and general sentiment).
 
 ## 📁 Files
 
@@ -33,7 +33,7 @@ subword_sentiment_analysis/
 
 `bpe_tokenizer.py` implements Byte-Pair Encoding entirely from Python's
 standard library (`re`, `collections`, `json` — **no** HuggingFace
-tokenizers, sentencepiece, or NLTK/spaCy subword utilities):
+tokenizers, sentencepiece or NLTK/spaCy subword utilities):
 
 1. Represent each word as characters + an end-of-word marker `</w>`.
 2. Count all adjacent symbol-pair frequencies across the corpus.
@@ -140,13 +140,13 @@ words with a 400,000-word vocabulary, while the custom embeddings were
 trained from scratch on only ~4,000 documents for 2 epochs. The comparison
 demonstrates both (a) that a subword tokenizer + embedding pipeline built
 entirely from scratch *can* learn real semantic structure, and (b) the
-practical value of pre-trained embeddings, especially on smaller datasets.
+practical value of pre-trained embeddings especially on smaller datasets.
 
 Outputs saved to `outputs/`:
-- `comparison_results.csv` — metrics table
-- `comparison_barchart.png` — side-by-side metric comparison
+- `comparison_results.csv` : metrics table
+- `comparison_barchart.png` : side-by-side metric comparison
 - `comparison_confusion_matrices.png`
-- `classification_reports.txt` — full sklearn reports for both pipelines
+- `classification_reports.txt` : full sklearn reports for both pipelines
 
 ## ⚙️ Setup
 
