@@ -2,7 +2,7 @@
 
 A complete NLP pipeline built **from scratch**: a custom Byte-Pair Encoding
 (BPE) subword tokenizer, custom word embeddings trained with skip-gram +
-negative sampling, and a downstream sentiment classifier, compared against
+negative sampling and a downstream sentiment classifier, compared against
 a genuinely pre-trained tokenizer + pre-trained embeddings (BERT).
 
 Dataset: `Sentiment_Analysis.csv` : 80,000 balanced positive/negative texts
@@ -80,7 +80,7 @@ The learned vocabulary is saved to **`subword_vocab.json`**.
 - Manual forward/backward pass and SGD weight updates
 - Negative sampling distribution ∝ unigram frequency^0.75
 - 50-dimensional embeddings, trained for 2 epochs over the **full 80,000
-  documents** (not a sample — this is a significantly larger training run
+  documents** (not a sample, this is a significantly larger training run
   than an earlier ~4,000-document version of this project)
 
 ```bash
@@ -133,13 +133,13 @@ Regression), so the comparison isolates the effect of tokenizer + embeddings:
 
 Both the tokenizer *and* the embeddings in the pre-trained pipeline are now
 genuinely pre-trained artifacts (an earlier version of this project used a
-hand-rolled regex word tokenizer alongside GloVe — that's been replaced).
+hand-rolled regex word tokenizer alongside GloVe, that's been replaced).
 BERT's tokenizer is also a subword tokenizer, which makes this an
 apples-to-apples comparison: subword tokenizer + embeddings, from scratch
 vs. pre-trained.
 
 Each document is vectorized the same way in both pipelines: tokenize, look
-up each token's embedding, and average the vectors — then both feed into
+up each token's embedding, and average the vectors, then both feed into
 the same `LogisticRegression` model. On the pre-trained side, this means
 using BERT's static input embedding layer rather than running a full
 forward pass through the transformer (i.e. no contextual embeddings). That
@@ -160,7 +160,7 @@ python classification_comparison.py
 | Pre-trained Tokenizer (BERT WordPiece) + Pre-trained Embeddings (BERT) | 0.75 | 0.75 | 0.75 | 0.75 |
 
 **Interpretation:** the pre-trained BERT pipeline outperforms the
-from-scratch pipeline by roughly 9 points of accuracy (0.75 vs. 0.66) —
+from-scratch pipeline by roughly 9 points of accuracy (0.75 vs. 0.66),
 expected, since BERT was pre-trained on billions of words with a
 ~30,000-token WordPiece vocabulary, while the custom embeddings are
 trained from scratch on this dataset alone. Still, a 0.66 accuracy /
@@ -172,7 +172,7 @@ embeddings cleanly separate negative-sentiment words (`bad`, `awful`,
 confirming the skip-gram model learned real distributional semantics
 purely from this corpus. The comparison demonstrates both (a) that a
 subword tokenizer + embedding pipeline built entirely from scratch can
-learn genuine semantic structure, and (b) the practical value of
+learn genuine semantic structure and (b) the practical value of
 pre-trained tokenizers and embeddings over a fully from-scratch pipeline
 trained on one dataset.
 
@@ -200,7 +200,7 @@ python classification_comparison.py  # 4. train & compare classifiers
 Or open `subword_sentiment_analysis.ipynb` for the full walkthrough in one
 notebook (note: re-running the notebook end-to-end repeats the BPE +
 embedding training on the full dataset and downloads BERT's pre-trained
-weights on first use, so budget real time for it — this is a much longer
+weights on first use, so budget real time for it, this is a much longer
 run than the earlier sampled version).
 
 ## Notes on scope / scaling
@@ -209,7 +209,7 @@ The tokenizer, embeddings, and classifier are all trained on the **full
 80,000-row dataset**. This is a meaningfully longer run than training on a
 sample: BPE training and skip-gram training are both pure Python/numpy (no
 vectorized batch training or GPU use), so expect the full pipeline —
-especially `bpe_tokenizer.py` and `train_embeddings.py` — to take
+especially `bpe_tokenizer.py` and `train_embeddings.py`, to take
 substantially longer than a sampled run. Plan accordingly (e.g. run it as
 a background job) rather than expecting it to finish in a minute or two.
 
