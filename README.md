@@ -208,7 +208,7 @@ run than the earlier sampled version).
 The tokenizer, embeddings, and classifier are all trained on the **full
 80,000-row dataset**. This is a meaningfully longer run than training on a
 sample: BPE training and skip-gram training are both pure Python/numpy (no
-vectorized batch training or GPU use), so expect the full pipeline —
+vectorized batch training or GPU use), so expect the full pipeline,
 especially `bpe_tokenizer.py` and `train_embeddings.py`, to take
 substantially longer than a sampled run. Plan accordingly (e.g. run it as
 a background job) rather than expecting it to finish in a minute or two.
