@@ -1,0 +1,22 @@
+=== Custom BPE + Custom Embeddings ===
+              precision    recall  f1-score   support
+
+    negative       0.66      0.64      0.65      7788
+    positive       0.66      0.68      0.67      7946
+
+    accuracy                           0.66     15734
+   macro avg       0.66      0.66      0.66     15734
+weighted avg       0.66      0.66      0.66     15734
+
+
+=== Pre-trained Tokenizer (BERT WordPiece) + Pre-trained Embeddings (BERT) ===
+              precision    recall  f1-score   support
+
+    negative       0.75      0.75      0.75      7788
+    positive       0.75      0.75      0.75      7946
+
+    accuracy                           0.75     15734
+   macro avg       0.75      0.75      0.75     15734
+weighted avg       0.75      0.75      0.75     15734
+
+
