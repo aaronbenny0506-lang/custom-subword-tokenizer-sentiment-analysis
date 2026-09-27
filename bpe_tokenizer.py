@@ -5,7 +5,7 @@ No external tokenizer libraries (no HuggingFace tokenizers, no sentencepiece,
 no nltk/spaCy word-piece utilities) are used for the subword algorithm itself.
 Only Python's standard library (re, collections, json) is used.
 
-Algorithm (Sennrich et al., 2016 — "Neural Machine Translation of Rare Words
+Algorithm (Sennrich et al., 2016, "Neural Machine Translation of Rare Words
 with Subword Units"):
     1. Split the training corpus into words; represent each word as a
        sequence of characters plus an end-of-word marker "</w>".
