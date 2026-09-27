@@ -21,7 +21,7 @@ Pre-trained pipeline: a genuine pre-trained tokenizer + pre-trained
                   this script that used a hand-rolled regex word tokenizer
                   alongside GloVe; both the tokenizer *and* the embeddings
                   are now genuinely pre-trained artifacts, and, like the
-                  custom pipeline — BERT's is a subword tokenizer, which
+                  custom pipeline, BERT's is a subword tokenizer, which
                   makes the comparison apples-to-apples (subword tokenizer
                   + embeddings, from scratch vs. pre-trained).
 
