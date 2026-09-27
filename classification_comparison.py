@@ -14,13 +14,13 @@ Custom pipeline:  BPETokenizer (bpe_tokenizer.py) + custom_embeddings.vec
                   (both trained from scratch in this project on the full
                   80,000-document dataset)
 Pre-trained pipeline: a genuine pre-trained tokenizer + pre-trained
-                  embeddings — BERT's own WordPiece subword tokenizer
+                  embeddings, BERT's own WordPiece subword tokenizer
                   (google-bert/bert-base-uncased, via HuggingFace
                   `transformers`) paired with BERT's own pre-trained token
                   embedding matrix. This replaces an earlier version of
                   this script that used a hand-rolled regex word tokenizer
                   alongside GloVe; both the tokenizer *and* the embeddings
-                  are now genuinely pre-trained artifacts, and — like the
+                  are now genuinely pre-trained artifacts, and, like the
                   custom pipeline — BERT's is a subword tokenizer, which
                   makes the comparison apples-to-apples (subword tokenizer
                   + embeddings, from scratch vs. pre-trained).
